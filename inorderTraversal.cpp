@@ -16,7 +16,7 @@ public:
     }
 };
 
-void preorder(Node *root)
+void inOrder(Node *root)
 {
     if (root == NULL)
     {
@@ -24,9 +24,9 @@ void preorder(Node *root)
     }
     else
     {
+        inOrder(root->leftPointer);
         cout << root->integerValue << " ";
-        preorder(root->leftPointer);
-        preorder(root->rightPointer);
+        inOrder(root->rightPointer);
     }
 }
 
@@ -45,7 +45,7 @@ int main()
     thirdNode->leftPointer = fifthNode;
     thirdNode->rightPointer = sixthNode;
 
-    preorder(root);
+    inOrder(root);
 
     return 0;
 }
